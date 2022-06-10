@@ -1,0 +1,274 @@
+@import "base/variables";
+@import "base/mixins";
+@import "base/extend";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.grid-contenedor{
+    display: grid;
+    grid-template-columns: repeat(1,auto);
+    grid-template-areas: "header" 
+                         "header" 
+                          "main" 
+                          "main"
+                          "foto" 
+                          "foto"
+                          "foto" 
+                          "foto"
+                          "footer" 
+                          "footer";   
+}
+
+
+.grid-contenedor1{
+    display: grid;
+    grid-template-columns: repeat(1,auto);  
+    grid-auto-flow: row;  
+}
+
+.foto {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    grid-area: foto;
+    background-color: $color-principal;
+}
+
+.grid-contenedor2{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-template-areas: "header header header header" 
+                          "main main main main"
+                          "main main main main"
+                          "footer footer footer footer";
+   
+}
+.encabezado{
+    grid-area: header;
+    @include flex;
+    .logoAdira{
+        width: 100px;
+        height: 80px;
+    }
+    .nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-principal;
+            ul{
+            display: flex; 
+            justify-content: center; 
+            }
+                li{
+                list-style-type: none;
+                color: $color-secundario;
+                margin: 5px;
+                padding: 5px;
+                }
+                     a{
+                    text-decoration: none;
+                    font-size: 20px;
+                    color: $color-secundario;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                    }
+    }   
+    }
+
+.fondo img{
+    width: 100%;
+    height: 100%;
+    animation-name: fondo1;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fondo1{
+    0%{ opacity: 0;}
+    100%{ opacity: 1;}
+    
+}
+
+
+main{
+    grid-area: main;
+    .subtitulo-home{
+        @include medidas (2px,5px);
+        font-style: oblique;
+        text-decoration: underline;
+    }
+}
+
+.padre{
+    grid-area: main;
+
+}
+
+.texto{
+    @include parrafos;
+    color: $color-texto;
+    padding: 5px;
+    margin: 30px;
+}
+.imagen1{
+    width: 200px;
+    margin: 60px;
+    justify-content: center;
+    justify-items: center;
+    animation-name: imagen1;
+    animation-duration: 5s;
+    animation-timing-function:ease-in;
+    animation-iteration-count: infinite
+
+}
+
+@keyframes imagen1{
+    0%{ opacity: 0;}
+    100%{ opacity: 1;}
+}
+
+footer{
+    grid-area: footer;
+    text-align: center;
+    padding: 15px;
+    background-color: #ff6363;
+    font-weight: bold;
+    color: white;
+}
+
+.jazz{
+    display: block;
+    justify-content: space-around;
+    justify-items: center;
+    margin: 15px;
+}
+
+.imagenJazz{
+    width: 350px;
+}
+
+
+.padre2{
+    grid-area: main;
+}    
+
+.card-home {
+    /* border-bottom: 1px solid black; */
+    box-shadow: 0px 0px 15px grey;
+    margin: 15px;
+    padding: 16px;
+    border-radius: 16px;
+    color:#770404;
+}
+
+.animate__animated.animate__fadeOutLeft{
+    animation-duration: 20s;
+    animation-timing-function:ease-in;
+    animation-iteration-count: infinite
+
+}
+
+.animate__animated.animate__fadeOutRight{
+    animation-duration: 20s;
+    animation-timing-function:ease-in;
+    animation-iteration-count: infinite
+}
+
+.parrafo-home{
+    @extend %jazz    
+}
+
+h1{
+    font-size:large;
+    color: $color-texto;
+    font-style: oblique;
+    padding: 5px;
+    text-decoration: underline;
+    
+}
+
+.instagram{
+    width: 25px;
+    height: 25px;    
+}
+
+.nav-footer{
+    @include flex;
+    list-style-type: none;
+}
+
+.imagen-carrousel{
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+}
+
+.fotos-carrousel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h4{
+    text-decoration: underline;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #770404;
+    padding-top: 10px;
+}
+
+table, td, th{
+    border: 1px solid black;
+}
+
+@media screen and (min-width: 1024px){
+
+    .grid-contenedor{
+        display: grid;
+        grid-template-columns: repeat(4,auto);
+        grid-template-areas: "header header header header" 
+                              "main main main main"
+                              "foto foto foto foto"
+                              "footer footer footer footer";
+       
+    }
+
+    .grid-contenedor1{
+        display: grid;
+        grid-auto-flow: column;
+        gap: 4px;
+        align-items: center;
+        justify-items: center;
+    }
+
+
+    .parrafo-home{
+        text-align: center;
+        font-size: medium;
+        color:#770404;
+        margin: 8%;    
+    }
+
+    .jazz{
+        display: flex;
+        justify-content: space-around;
+        justify-items: center;
+        margin: 50px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
